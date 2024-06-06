@@ -8,9 +8,9 @@ vagas_coluna = ['DEV. JAVA', 'ANALISTA DE DADOS', 'UX DESIGNER', 'DEV. FRONTEND'
 
 while True:
     print(" ")
-    print("------------------------------")
-    print("        MENU PRINCIPAL        ")
-    print("------------------------------")
+    print("--------------------------------")
+    print("         MENU PRINCIPAL         ")
+    print("--------------------------------")
     print("1 - Cadastrar Dados na Planilha")
     print("2 - Cadastrar Skill")
     print("3 - Cadastrar Vaga")
@@ -19,7 +19,9 @@ while True:
     print("6 - Alterar Dados na Planilha")
     print("7 - Ver Planilha")
     print("0 - Sair")
-    print(" \nDigite 'LIMPAR' para limpar o console")
+    print("--------------------------------")
+    print("Digite 'LIMPAR' para limpar o console")
+    print("--------------------------------")
     resposta = (input("> ")).upper()
     print(" ")
 
@@ -172,7 +174,7 @@ while True:
             if resposta == "0":
                 print("Programa feito como TRABALHO FINAL da Disciplina de LP1")
                 print("\nINTEGRANTES: Erick Lauretti\n             João Guilherme\n             Luiz Hélio\n")
-                print("Obrigado por usar!\nGITHUB Repository: https://github.com/LuizHelio-Fim/CadastroDeVagasDeEmprego_TrabalhoFinal \n\n")
+                print("Obrigado por usar Cadastro de Vagas de Emprego!\nGITHUB Repository: https://github.com/LuizHelio-Fim/CadastroDeVagasDeEmprego_TrabalhoFinal \n\n")
                 exit()
         
         case "LIMPAR":
