@@ -74,48 +74,42 @@ while True:
 
         case "4":
         # Remover SKILLS
-            for skills in range(len(skills_linha)):  # Mostra na tela todas as Skills no vetor
+            for skills in range(len(skills_linha)):  # Imprime todas as skills
                 print(f"{skills_linha[skills]}")
-
+            
             remove = input("\nQual skill deseja remover?\n> ").upper()
-            conferir = None
-            for i in range(len(skills_linha)): # Confere se a skill digitada existe no vetor skills_linha
-                if remove == skills_linha[i]:
-                    conferir = input(f"Deseja mesmo remover {remove}? (S/N)\n> ")
-                    if conferir.upper() == "S":
-                        skills_linha.remove(remove)
-                    elif conferir.upper() == "N":
-                        continue
-                    else:
-                        print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
-
-            if conferir == None:
-                print("ERRO: Skill INVALIDA ou NÃO encontrada")
+            if remove in skills_linha:  # Confere se a vaga digitada existe no vetor skills_linha
+                conferir = input(f"Deseja mesmo remover {remove}? (S/N)\n> ")
+                if conferir.upper() == "S":
+                    skills_linha.remove(remove)
+                elif conferir.upper() == "N":
+                    print("OPERAÇÃO CANCELADA.")
+                else:
+                    print("ERRO: RESPOSTA INVALIDA, Digite S ou N.")
+            else:
+                print("ERRO: Skill não encontrada.")
 
         case "5":
         # Remover VAGAS
-            for vagas in range(len(vagas_coluna)):  # Mostra na tela todas as vagas no vetor
+            for vagas in range(len(vagas_coluna)):  # Imprime todas as skills
                 print(f"{vagas_coluna[vagas]}")
             
-            remove = input("\nQual vaga deseja remover?\n> ").upper()
-            conferir = None
-            for i in range(len(vagas_coluna)):  # Confere se a vaga digitada existe no vetor vagas_coluna
-                if remove == vagas_coluna[i]:
-                    conferir = input(f"Deseja mesmo remover {remove}? (S/N)\n> ")
-                    if conferir.upper() == "S":
-                        vagas_coluna.remove(remove)
-                    elif conferir.upper() == "N":
-                        continue
-                    else:
-                        print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
-
-                if conferir == None:
-                    print("ERRO: Vaga INVALIDA ou Não encontrada")
+            remove = input("\nQual skill deseja remover?\n> ").upper()
+            if remove in vagas_coluna:  # Confere se a vaga digitada existe no vetor vagas_coluna
+                conferir = input(f"Deseja mesmo remover {remove}? (S/N)\n> ")
+                if conferir.upper() == "S":
+                    vagas_coluna.remove(remove)
+                elif conferir.upper() == "N":
+                    print("OPERAÇÃO CANCELADA.")
+                else:
+                    print("ERRO: RESPOSTA INVALIDA, Digite S ou N.")
+            else:
+                print("ERRO: Skill não encontrada.")
 
         case "6":
         #Verificar se existem dados na matriz
             if len(matriz_vagas) == 0:
-                print("NENHUM DADO ENCONTRADO NA PLANILHA")
+                print("NENHUM DADO ENCONTRADO NA PLANILHA.")
                 continue
 
         # Alterar dados na matriz
@@ -138,7 +132,7 @@ while True:
                 print("Skill ou vaga inválida.")
 
             if skill_index == -1 or vaga_index == -1:
-                print("ERRO: Skill ou vaga não encontrada na Planilha")
+                print("ERRO: Skill ou vaga não encontrada na Planilha.")
                 continue
 
             while True:
@@ -148,7 +142,7 @@ while True:
                 elif resposta.upper() == "N":
                     matriz_vagas[skill_index][vaga_index] = False
                 else:
-                    print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
+                    print("ERRO: RESPOSTA INVALIDA, Digite S ou N.")
                 
                 outra = input("Deseja alterar outra skill/vaga? (S/N)\n> ").upper()
                 if outra == "S":
@@ -186,5 +180,5 @@ while True:
             continue
 
         case _:
-            print("ERRO: OPÇÃO SELECIONADA INVALIDA")
+            print("ERRO: OPÇÃO SELECIONADA INVALIDA.")
             continue
