@@ -3,8 +3,8 @@ import os
 # Criação da matriz
 matriz_vagas = []
 
-skills_linha = ['Java', 'Python', 'SQL', 'Figma', 'Comunicação', 'Power BI']
-vagas_coluna = ['Dev. Java', 'Analista de dados', 'Ux Designer', 'Dev. FrontEnd', 'Designer Gráfico']
+skills_linha = ['JAVA', 'PYTHON', 'SQL', 'FIGMA', 'ADOBE XD', 'POWER BI']
+vagas_coluna = ['DEV. JAVA', 'ANALISTA DE DADOS', 'UX DESIGNER', 'DEV. FRONTEND', 'DESIGNER GRÁFICO']
 
 while True:
     print(" ")
@@ -12,8 +12,8 @@ while True:
     print("        MENU PRINCIPAL        ")
     print("------------------------------")
     print("1 - Cadastrar Dados na Planilha")
-    print("2 - Cadastrar Uma nova Skill")
-    print("3 - Cadastrar Uma nova Vaga")
+    print("2 - Cadastrar Skill")
+    print("3 - Cadastrar Vaga")
     print("4 - Remover Skill")
     print("5 - Remover Vaga")
     print("6 - Alterar Dados na Planilha")
@@ -38,13 +38,13 @@ while True:
                             skills.append(False)
                             break
                         else:
-                            print("RESPOSTA INVALIDA, Digite S ou N")
+                            print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
                 matriz_vagas.append(skills)
 
         case "2":
         # Cadastrar uma nova skill
             while True:
-                nova_Skill = input("Qual skill deseja adicionar?\n> ")
+                nova_Skill = input("Qual skill deseja adicionar?\n> ").upper()
                 conferir = input(f"{nova_Skill} está correto? (S/N)\n>")
                 if conferir.upper() == "S":
                     skills_linha.append(nova_Skill)
@@ -62,7 +62,7 @@ while True:
         case "3":
         # Cadastrar uma nova vaga
             while True:
-                nova_vaga = input("Qual vaga deseja adicionar?\n> ")
+                nova_vaga = input("Qual vaga deseja adicionar?\n> ").upper()
                 conferir = input(f"{nova_vaga} está correto? (S/N)\n>")
                 if conferir.upper() == "S":
                     vagas_coluna.append(nova_vaga)
@@ -73,16 +73,51 @@ while True:
                         break
 
         case "4":
-            print()
-        
+        # Remover SKILLS
+            for skills in range(len(skills_linha)):  # Mostra na tela todas as Skills no vetor
+                print(f"{skills_linha[skills]}")
+
+            remove = input("\nQual skill deseja remover?\n> ").upper()
+            conferir = None
+            for i in range(len(skills_linha)): # Confere se a skill digitada existe no vetor skills_linha
+                if remove == skills_linha[i]:
+                    conferir = input(f"Deseja mesmo remover {remove}? (S/N)\n> ")
+                    if conferir.upper() == "S":
+                        skills_linha.remove(remove)
+                    elif conferir.upper() == "N":
+                        continue
+                    else:
+                        print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
+
+            if conferir == None:
+                print("ERRO: Skill INVALIDA ou NÃO encontrada")
+
         case "5":
-            print()
+        # Remover VAGAS
+            for vagas in range(len(vagas_coluna)):  # Mostra na tela todas as vagas no vetor
+                print(f"{vagas_coluna[vagas]}")
+            
+            remove = input("\nQual vaga deseja remover?\n> ").upper()
+            conferir = None
+            for i in range(len(vagas_coluna)):  # Confere se a vaga digitada existe no vetor vagas_coluna
+                if remove == vagas_coluna[i]:
+                    conferir = input(f"Deseja mesmo remover {remove}? (S/N)\n> ")
+                    if conferir.upper() == "S":
+                        vagas_coluna.remove(remove)
+                    elif conferir.upper() == "N":
+                        continue
+                    else:
+                        print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
+
+                if conferir == None:
+                    print("ERRO: Vaga INVALIDA ou Não encontrada")
 
         case "6":
         #Verificar se existem dados na matriz
             if len(matriz_vagas) == 0:
                 print("NENHUM DADO ENCONTRADO NA PLANILHA")
                 continue
+
         # Alterar dados na matriz
             for skills in range(len(skills_linha)):
                 print(f"{skills+1} - {skills_linha[skills]}")
@@ -103,7 +138,7 @@ while True:
                 print("Skill ou vaga inválida.")
 
             if skill_index == -1 or vaga_index == -1:
-                print("ERRO: Skill ou vaga não encontrada na matriz")
+                print("ERRO: Skill ou vaga não encontrada na Planilha")
                 continue
 
             while True:
@@ -113,7 +148,7 @@ while True:
                 elif resposta.upper() == "N":
                     matriz_vagas[skill_index][vaga_index] = False
                 else:
-                    print("RESPOSTA INVALIDA, Digite S ou N")
+                    print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
                 
                 outra = input("Deseja alterar outra skill/vaga? (S/N)\n> ").upper()
                 if outra == "S":
@@ -143,7 +178,7 @@ while True:
             if resposta == "0":
                 print("Programa feito como TRABALHO FINAL da Disciplina de LP1")
                 print("\nINTEGRANTES: Erick Lauretti\n             João Guilherme\n             Luiz Hélio\n")
-                print("Obrigado por usar!\nGITHUB Repository: https://github.com/LuizHelio-Fim/CadastroDeVagasDeEmprego_TrabalhoFinal")
+                print("Obrigado por usar!\nGITHUB Repository: https://github.com/LuizHelio-Fim/CadastroDeVagasDeEmprego_TrabalhoFinal \n\n")
                 exit()
         
         case "LIMPAR":
