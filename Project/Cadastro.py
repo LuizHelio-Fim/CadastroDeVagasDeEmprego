@@ -160,7 +160,7 @@ while True:
             print()
 
             if len(matriz_vagas) > 0:
-                for i in range(len(matriz_vagas)):
+                for i in range(len(skills_linha)):
                     print("{:<20}".format(skills_linha[i]), end=' ')
                     for elemento in matriz_vagas[i]:
                         print("{:<20}".format(str(elemento)), end=' ')
