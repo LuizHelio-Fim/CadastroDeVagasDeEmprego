@@ -83,7 +83,7 @@ while True:
                 else:
                     print("ERRO: RESPOSTA INVALIDA")
                     continue
-            
+
         case "3":
         # Cadastrar uma nova vaga
             while True:
@@ -242,7 +242,7 @@ while True:
                 print("\nINTEGRANTES: Erick Lauretti\n             João Guilherme\n             Luiz Hélio\n")
                 print("Obrigado por usar Cadastro de Vagas de Emprego!\nGITHUB Repository: https://github.com/LuizHelio-Fim/CadastroDeVagasDeEmprego_TrabalhoFinal \n\n")
                 exit()
-        
+
         case "LIMPAR":
             os.system('cls')
             continue
