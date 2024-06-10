@@ -201,7 +201,7 @@ while True:
                             indice_linha = skills_linha.index(skill_alterar)  # Busca o indice da linha digitada
                             break
                     else:
-                        print("ERRO: Vaga não encontrada")
+                        print("ERRO: Skill não encontrada")
                 elif conferir.upper() == "N":
                     continue
                 else:
