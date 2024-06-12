@@ -18,11 +18,12 @@ while True:
     print("5 - Remover Vaga")
     print("6 - Alterar Dados na Planilha")
     print("7 - Ver Planilha")
+    print("8 - Pesquisas")
     print("0 - Sair")
     print("--------------------------------")
     print("Digite 'LIMPAR' para limpar o console")
     print("--------------------------------")
-    resposta = (input("> ")).upper()
+    resposta = input("> ").upper().strip()
     print(" ")
 
     match resposta:
@@ -62,13 +63,15 @@ while True:
         case "2":
         # Cadastrar uma nova skill
             while True:
-                nova_Skill = input("Qual skill deseja adicionar?\n> ").upper()
+                nova_Skill = input("Qual skill deseja adicionar?\n> ").upper().strip()
+                if nova_Skill in skills_linha:
+                    print("ERRO: Skill já cadastrada")
+                    continue
                 conferir = input(f"{nova_Skill} está correto? (S/N)\n>")
                 if conferir.upper() == "S":
                     skills_linha.append(nova_Skill)
 
                     outra = input("Deseja Adicionar outra skill? (S/N)\n> ").upper()
-
                     if outra == "S":
                         continue
                     elif outra == "N":
@@ -87,7 +90,10 @@ while True:
         case "3":
         # Cadastrar uma nova vaga
             while True:
-                nova_vaga = input("Qual vaga deseja adicionar?\n> ").upper()
+                nova_vaga = input("Qual vaga deseja adicionar?\n> ").upper().strip()
+                if nova_vaga in vagas_coluna:
+                    print("ERRO: Vaga já cadastrada")
+                    continue
                 conferir = input(f"{nova_vaga} está correto? (S/N)\n>")
                 if conferir.upper() == "S":
                     vagas_coluna.append(nova_vaga)
@@ -234,6 +240,74 @@ while True:
             else:
                 for i in range(len(skills_linha)):
                     print(f"{skills_linha[i]}")
+
+        case "8":
+            while True:
+                os.system("cls")
+                print(" ")
+                print("--------------------------------")
+                print("            PESQUISA            ")
+                print("--------------------------------")
+                print("1 - Filtrar Skills por Vagas")
+                print("2 - Filtrar Vagas por Skills")
+                print("0 - Voltar")
+                print("--------------------------------")
+                print("Digite 'LIMPAR' para limpar o console")
+                print("--------------------------------")
+                resposta_pesquisa = input("> ").upper().strip()
+
+                match resposta_pesquisa:
+                    case "1":
+                        for vagas in range(len(vagas_coluna)):  # Imprime todas as vagas
+                            print(f"{vagas_coluna[vagas]}")
+
+                        vaga_filtrar = input("Qual vaga deseja filtrar?\n> ").upper()
+                        if vaga_filtrar not in vagas_coluna:
+                            print("ERRO: Vaga não encontrada.")
+                            continue
+
+                        skills_utilizadas = []
+                        for i in range(len(skills_linha)):
+                            if matriz_vagas[i][vagas_coluna.index(vaga_filtrar)]:
+                                skills_utilizadas.append(skills_linha[i])
+
+                        if len(skills_utilizadas) == 0:
+                            print(f"A vaga '{vaga_filtrar}' não utiliza nenhuma skill.")
+                        else:
+                            print(f"A vaga '{vaga_filtrar}' utiliza as seguintes skills:")
+                            for skill in skills_utilizadas:
+                                print(skill)
+                        break
+
+                    case "2":
+                        for skills in range(len(skills_linha)):  # Imprime todas as skills
+                            print(f"{skills_linha[skills]}")
+
+                        skill_filtrar = input("Qual skill deseja filtrar?\n> ").upper()
+                        if skill_filtrar not in skills_linha:
+                            print("ERRO: Skill não encontrada.")
+                            continue
+
+                        vagas_utilizadas = []
+                        for i in range(len(vagas_coluna)):
+                            if matriz_vagas[skills_linha.index(skill_filtrar)][i]:
+                                vagas_utilizadas.append(vagas_coluna[i])
+
+                        if len(vagas_utilizadas) == 0:
+                            print(f"A skill '{skill_filtrar}' não é utilizada em nenhuma vaga.")
+                        else:
+                            print(f"A skill '{skill_filtrar}' é utilizada nas seguintes vagas:")
+                            for vaga in vagas_utilizadas:
+                                print(vaga)
+                        break
+
+                    case "0":
+                        os.system("cls")
+                        break
+
+                    case "LIMPAR":
+                        os.system('cls')
+                        continue
 
         case "0":
             os.system('cls')
