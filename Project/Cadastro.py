@@ -64,6 +64,19 @@ while True:
         case "2":
         # Cadastrar uma nova skill
             while True:
+
+                if len(matriz_vagas) > 0:
+                    print("ERRO: Lista preenchida, deseja resetar a planilha? (S/N)")
+                    resetar = input("> ").upper().strip()
+                    if resetar == "S":
+                        matriz_vagas = []
+                        break
+                    elif resetar == "N":
+                        break
+                    else:
+                        print("ERRO: RESPOSTA INVALIDA, Digite S ou N.")
+                        continue
+
                 nova_Skill = input("Qual skill deseja adicionar?\n> ").upper().strip()
                 if nova_Skill in skills_linha:
                     print("ERRO: Skill já cadastrada")
@@ -92,6 +105,18 @@ while True:
         case "3":
         # Cadastrar uma nova vaga
             while True:
+                if len(matriz_vagas) > 0:
+                    print("ERRO: Lista preenchida, deseja resetar a planilha? (S/N)")
+                    resetar = input("> ").upper().strip()
+                    if resetar == "S":
+                        matriz_vagas = []
+                        break
+                    elif resetar == "N":
+                        break
+                    else:
+                        print("ERRO: RESPOSTA INVALIDA, Digite S ou N.")
+                        continue
+                    
                 nova_vaga = input("Qual vaga deseja adicionar?\n> ").upper().strip()
                 if nova_vaga in vagas_coluna:
                     print("ERRO: Vaga já cadastrada")
@@ -232,18 +257,6 @@ while True:
             for vaga in vagas_coluna:
                 print("{:<20}".format(vaga), end=' ')
             print()
-
-            if len(skills_linha) < len(matriz_vagas):
-                print("ERRO: Lista preenchida, deseja resetar a planilha? (S/N)")
-                resetar = input("> ").upper().strip()
-                if resetar == "S":
-                    matriz_vagas = []
-                    break
-                elif resetar == "N":
-                    break
-                else:
-                    print("ERRO: RESPOSTA INVALIDA, Digite S ou N.")
-                    continue
 
             if len(matriz_vagas) > 0:
                 for i in range(len(skills_linha)):
