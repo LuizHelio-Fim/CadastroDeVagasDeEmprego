@@ -233,6 +233,18 @@ while True:
                 print("{:<20}".format(vaga), end=' ')
             print()
 
+            if len(skills_linha) < len(matriz_vagas):
+                print("ERRO: Lista preenchida, deseja resetar a planilha? (S/N)")
+                resetar = input("> ").upper().strip()
+                if resetar == "S":
+                    matriz_vagas = []
+                    break
+                elif resetar == "N":
+                    break
+                else:
+                    print("ERRO: RESPOSTA INVALIDA, Digite S ou N.")
+                    continue
+
             if len(matriz_vagas) > 0:
                 for i in range(len(skills_linha)):
                     print("{:<20}".format(skills_linha[i]), end=' ')
