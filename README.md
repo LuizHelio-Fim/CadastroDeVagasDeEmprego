@@ -12,7 +12,10 @@ Este projeto é um sistema de cadastro de vagas de emprego, desenvolvido como tr
 6. **Alterar Dados na Planilha**: Altera a relação entre uma vaga e uma habilidade específica.
 7. **Ver Planilha**: Exibe a planilha com as relações entre vagas e habilidades.
 8. **Pesquisas**: Permite filtrar vagas por habilidades e habilidades por vagas.
-9. **Sair**: Encerra o programa.
+
+# Pré-Requisitos
+
+- **Biblioteca Colorama**
 
 ## Como Executar
 
