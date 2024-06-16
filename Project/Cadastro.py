@@ -43,7 +43,7 @@ while True:
             while True:
                 if len(matriz_vagas) != 0:
                     print("Planilha já com dados cadastrados, Deseja recadastrar novos dados? (S/N)")
-                    conferir = input("> ").upper()
+                    conferir = input("> ").upper().strip()
                     if conferir == "S":
                         matriz_vagas = []
                         break
@@ -60,7 +60,7 @@ while True:
                     skills = []
                     for j in range(len(vagas_coluna)):
                         while True:
-                            resposta = input(f"A vaga '{vagas_coluna[j]}' utiliza a skill '{skills_linha[i]}'? (S/N): ")
+                            resposta = input(f"A vaga '{vagas_coluna[j]}' utiliza a skill '{skills_linha[i]}'? (S/N): ").strip()
                             if resposta.upper() == "S":
                                 skills.append(True)
                                 break
@@ -96,7 +96,7 @@ while True:
                 if conferir.upper() == "S":
                     skills_linha.append(nova_Skill)
 
-                    outra = input("Deseja Adicionar outra skill? (S/N)\n> ").upper()
+                    outra = input("Deseja Adicionar outra skill? (S/N)\n> ").upper().strip()
                     if outra == "S":
                         continue
                     elif outra == "N":
@@ -135,7 +135,7 @@ while True:
                 if conferir.upper() == "S":
                     vagas_coluna.append(nova_vaga)
 
-                    outra = input("Deseja Adicionar outra vaga? (S/N)\n> ").upper()
+                    outra = input("Deseja Adicionar outra vaga? (S/N)\n> ").upper().strip()
                     if outra == "S":
                         continue
                     elif outra == "N":
@@ -155,7 +155,7 @@ while True:
         # Remover SKILLS
             if len(matriz_vagas) != 0:
                 print(f"{color['red']}ERRO: A planilha está completa{color['reset']}")
-                resetar = input("Deseja resetar a planilha para remover skill? (S/N)\n> ")
+                resetar = input("Deseja resetar a planilha para remover skill? (S/N)\n> ").strip()
                 if resetar.upper() == "S":
                     matriz_vagas = []
                 elif resetar.upper() == "N":
@@ -167,9 +167,9 @@ while True:
             for skills in range(len(skills_linha)):  # Imprime todas as skills
                 print(f"{skills_linha[skills]}")
             
-            remove = input("\nQual skill deseja remover?\n> ").upper()
+            remove = input("\nQual skill deseja remover?\n> ").upper().strip()
             if remove in skills_linha:  # Confere se a skill digitada existe no vetor skills_linha
-                conferir = input(f"Deseja mesmo remover {remove}? (S/N)\n> ")
+                conferir = input(f"Deseja mesmo remover {remove}? (S/N)\n> ").strip()
                 if conferir.upper() == "S":
                     skills_linha.remove(remove)
                 elif conferir.upper() == "N":
@@ -183,7 +183,7 @@ while True:
         # Remover VAGAS
             if len(matriz_vagas) != 0:
                 print(f"{color['red']}ERRO: A planilha está completa.{color['reset']}")
-                resetar = input("Deseja resetar a planilha para remover vaga? (S/N)\n> ")
+                resetar = input("Deseja resetar a planilha para remover vaga? (S/N)\n> ").strip()
                 if resetar.upper() == "S":
                     matriz_vagas = []
                 elif resetar.upper() == "N":
@@ -197,7 +197,7 @@ while True:
             
             remove = input("\nQual skill deseja remover?\n> ").upper()
             if remove in vagas_coluna:  # Confere se a vaga digitada existe no vetor vagas_coluna
-                conferir = input(f"Deseja mesmo remover {remove}? (S/N)\n> ")
+                conferir = input(f"Deseja mesmo remover {remove}? (S/N)\n> ").strip()
                 if conferir.upper() == "S":
                     vagas_coluna.remove(remove)
                 elif conferir.upper() == "N":
@@ -218,18 +218,13 @@ while True:
                 print(f"{vagas_coluna[vagas]}")
 
             while True:
-                vaga_alterar = input("\nQual vaga deseja alterar?\n> ").upper()
-                conferir = input(f"{vaga_alterar} está correto? (S/N)\n> ")
-                if conferir.upper() == "S":
-                    if vaga_alterar in vagas_coluna:  # Confere se a vaga digitada existe no vetor vagas_coluna
-                            indice_coluna = vagas_coluna.index(vaga_alterar)  # Busca o indice da coluna digitada
-                            break
-                    else:
-                        print(f"{color['red']}ERRO: Vaga não encontrada.{color['reset']}")
-                elif conferir.upper() == "N":
-                    continue
+                vaga_alterar = input("\nQual vaga deseja alterar?\n> ").upper().strip()
+                if vaga_alterar in vagas_coluna:  # Confere se a vaga digitada existe no vetor vagas_coluna
+                        indice_coluna = vagas_coluna.index(vaga_alterar)  # Busca o indice da coluna digitada
+                        break
                 else:
-                    print(f"{color['red']}ERRO: RESPOSTA INVALIDA, Digite S ou N{color['reset']}")
+                    print(f"{color['red']}ERRO: Vaga não encontrada.{color['reset']}") 
+                    continue
 
             print(" ")
             
@@ -237,18 +232,13 @@ while True:
                 print(f"{skills_linha[skills]}")
 
             while True:
-                skill_alterar = input("\nQual skill deseja alterar?\n> ").upper()
-                conferir = input(f"{skill_alterar} está correto? (S/N)\n> ")
-                if conferir.upper() == "S":
-                    if skill_alterar in skills_linha:  # Confere se a skill digitada existe no vetor skills_linha
-                            indice_linha = skills_linha.index(skill_alterar)  # Busca o indice da linha digitada
-                            break
-                    else:
-                        print(f"{color['red']}ERRO: Skill não encontrada.{color['reset']}")
-                elif conferir.upper() == "N":
-                    continue
+                skill_alterar = input("\nQual skill deseja alterar?\n> ").upper().strip()
+                if skill_alterar in skills_linha:  # Confere se a skill digitada existe no vetor skills_linha
+                        indice_linha = skills_linha.index(skill_alterar)  # Busca o indice da linha digitada
+                        break
                 else:
-                    print(f"{color['red']}ERRO: RESPOSTA INVALIDA, Digite S ou N{color['reset']}")
+                    print(f"{color['red']}ERRO: Skill não encontrada.{color['reset']}")
+                    continue
 
             while True:
                 alterar = input(f"A vaga '{vagas_coluna[indice_coluna]}' utiliza a skill '{skills_linha[indice_linha]}'? (S/N)\n> ")
@@ -303,7 +293,7 @@ while True:
                         for vagas in range(len(vagas_coluna)):  # Imprime todas as vagas
                             print(f"{vagas_coluna[vagas]}")
 
-                        vaga_filtrar = input("Qual vaga deseja filtrar?\n> ").upper()
+                        vaga_filtrar = input("Qual vaga deseja filtrar?\n> ").upper().strip()
                         if vaga_filtrar not in vagas_coluna:
                             print(f"{color['red']}ERRO: Vaga não encontrada.{color['reset']}\n")
                             continue
@@ -330,7 +320,7 @@ while True:
                         for skills in range(len(skills_linha)):  # Imprime todas as skills
                             print(f"{skills_linha[skills]}")
 
-                        skill_filtrar = input("Qual skill deseja filtrar?\n> ").upper()
+                        skill_filtrar = input("Qual skill deseja filtrar?\n> ").upper().strip()
                         if skill_filtrar not in skills_linha:
                             print(f"{color['red']}ERRO: Skill não encontrada.{color['reset']}\n")
                             continue
