@@ -69,7 +69,8 @@ while True:
                                 break
                             else:
                                 print(f"{color['red']}ERRO: RESPOSTA INVALIDA, Digite S ou N{color['reset']}")
-                    matriz_vagas.append(skills)  
+                    matriz_vagas.append(skills)
+                print(f"{color['green']}\nDADOS CADASTRADOS COM SUCESSO{color['reset']}")
 
         case "2":
         # Cadastrar uma nova skill
@@ -172,6 +173,7 @@ while True:
                 conferir = input(f"Deseja mesmo remover {remove}? (S/N)\n> ").strip()
                 if conferir.upper() == "S":
                     skills_linha.remove(remove)
+                    print(f"{color['green']}\n {remove} REMOVIDO COM SUCESSO{color['reset']}")
                 elif conferir.upper() == "N":
                     print(f"{color['green']}OPERAÇÃO CANCELADA.{color['reset']}")
                 else:
@@ -200,6 +202,7 @@ while True:
                 conferir = input(f"Deseja mesmo remover {remove}? (S/N)\n> ").strip()
                 if conferir.upper() == "S":
                     vagas_coluna.remove(remove)
+                    print(f"{color['green']}\n {remove} REMOVIDO COM SUCESSO{color['reset']}")
                 elif conferir.upper() == "N":
                     print(f"{color['green']}OPERAÇÃO CANCELADA.{color['reset']}")
                 else:
