@@ -1,15 +1,5 @@
 import os
-from colorama import init, Fore
 
-init()
-
-color = {
-    'red' : Fore.RED,
-    'cyan' : Fore.CYAN,
-    'green' : Fore.GREEN,
-    'magenta' : Fore.MAGENTA,
-    'reset' : Fore.RESET,
-}
 # Criação da matriz
 matriz_vagas = []
 
@@ -18,11 +8,11 @@ vagas_coluna = ['DEV. JAVA', 'ANALISTA DE DADOS', 'DEV. FRONTEND', 'UX DESIGNER'
 
 while True:
     print(" ")
-    print(f"{color['magenta']}  CADASTRO DE VAGAS DE EMPREGO  ")
+    print("  CADASTRO DE VAGAS DE EMPREGO  ")
     print("--------------------------------")
     print("         MENU PRINCIPAL         ")
-    print(f"--------------------------------{color['reset']}")
-    print(f"{color['cyan']}1 - Cadastrar Dados na Planilha")
+    print("--------------------------------")
+    print("1 - Cadastrar Dados na Planilha")
     print("2 - Cadastrar Skill")
     print("3 - Cadastrar Vaga")
     print("4 - Remover Skill")
@@ -30,10 +20,10 @@ while True:
     print("6 - Alterar Dados na Planilha")
     print("7 - Ver Planilha")
     print("8 - Pesquisas")
-    print(f"0 - Sair{color['reset']}")
-    print(f"{color['magenta']}--------------------------------")
+    print("0 - Sair")
+    print("--------------------------------")
     print("Digite 'LIMPAR' para limpar o console")
-    print(f"--------------------------------{color['reset']}")
+    print("--------------------------------")
     resposta = input("> ").upper().strip()
     print(" ")
 
@@ -50,7 +40,7 @@ while True:
                     elif conferir == "N":
                         break
                     else:
-                        print(f"{color['red']}ERRO: RESPOSTA INVALIDA, Digite S ou N{color['reset']}")
+                        print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
                         continue
                 else:
                     break
@@ -68,16 +58,16 @@ while True:
                                 skills.append(False)
                                 break
                             else:
-                                print(f"{color['red']}ERRO: RESPOSTA INVALIDA, Digite S ou N{color['reset']}")
+                                print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
                     matriz_vagas.append(skills)
-                print(f"{color['green']}\nDADOS CADASTRADOS COM SUCESSO{color['reset']}")
+                print(f"\nDADOS CADASTRADOS COM SUCESSO")
 
         case "2":
         # Cadastrar uma nova skill
             while True:
 
                 if len(matriz_vagas) > 0:
-                    print(f"{color['red']}ERRO: Lista preenchida, deseja resetar a planilha? (S/N){color['reset']}")
+                    print("ERRO: Lista preenchida, deseja resetar a planilha? (S/N)")
                     resetar = input("> ").upper().strip()
                     if resetar == "S":
                         matriz_vagas = []
@@ -85,12 +75,12 @@ while True:
                     elif resetar == "N":
                         break
                     else:
-                        print(f"{color['red']}ERRO: RESPOSTA INVALIDA, Digite S ou N{color['reset']}")
+                        print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
                         continue
 
                 nova_Skill = input("Qual skill deseja adicionar?\n> ").upper().strip()
                 if nova_Skill in skills_linha:
-                    print(f"{color['red']}ERRO: Skill já cadastrada{color['reset']}")
+                    print("ERRO: Skill já cadastrada")
                     continue
 
                 conferir = input(f"{nova_Skill} está correto? (S/N)\n>")
@@ -101,23 +91,23 @@ while True:
                     if outra == "S":
                         continue
                     elif outra == "N":
-                        print(f"\n{color['green']}Cadastrado com Sucesso{color['reset']}") 
+                        print("\nCadastrado com Sucesso") 
                         break
                     else:
-                        print(f"{color['red']}ERRO: RESPOSTA INVALIDA, Digite S ou N{color['reset']}")
+                        print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
 
                 elif conferir.upper() == "N":
-                    print(f"{color['green']}OPERAÇÃO CANCELADA.{color['reset']}")
+                    print("OPERAÇÃO CANCELADA.")
                     continue
                 else:
-                    print(f"{color['red']}RRO: RESPOSTA INVALIDA{color['reset']}")
+                    print("ERRO: RESPOSTA INVALIDA")
                     continue
 
         case "3":
         # Cadastrar uma nova vaga
             while True:
                 if len(matriz_vagas) > 0:
-                    print(f"{color['red']}ERRO: Lista preenchida, deseja resetar a planilha? (S/N){color['reset']}")
+                    print("ERRO: Lista preenchida, deseja resetar a planilha? (S/N)")
                     resetar = input("> ").upper().strip()
                     if resetar == "S":
                         matriz_vagas = []
@@ -125,12 +115,12 @@ while True:
                     elif resetar == "N":
                         break
                     else:
-                        print(f"{color['red']}ERRO: RESPOSTA INVALIDA, Digite S ou N{color['reset']}")
+                        print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
                         continue
 
                 nova_vaga = input("Qual vaga deseja adicionar?\n> ").upper().strip()
                 if nova_vaga in vagas_coluna:
-                    print(f"{color['red']}ERRO: Vaga já cadastrada{color['reset']}")
+                    print("ERRO: Vaga já cadastrada")
                     continue
                 conferir = input(f"{nova_vaga} está correto? (S/N)\n>")
                 if conferir.upper() == "S":
@@ -140,29 +130,29 @@ while True:
                     if outra == "S":
                         continue
                     elif outra == "N":
-                        print(f"{color['green']}Cadastrado com Sucesso{color['reset']}")
+                        print("Cadastrado com Sucesso")
                         break
                     else:
-                        print(f"{color['red']}ERRO: RESPOSTA INVALIDA, Digite S ou N{color['reset']}")
+                        print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
 
                 elif conferir.upper() == "N":
-                    print(f"{color['green']}OPERAÇÃO CANCELADA.{color['reset']}")
+                    print("OPERAÇÃO CANCELADA.")
                     continue
                 else:
-                    print(f"{color['red']}ERRO: RESPOSTA INVALIDA, Digite S ou N{color['reset']}")
+                    print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
                     continue
 
         case "4":
         # Remover SKILLS
             if len(matriz_vagas) != 0:
-                print(f"{color['red']}ERRO: A planilha está completa{color['reset']}")
+                print("ERRO: A planilha está completa")
                 resetar = input("Deseja resetar a planilha para remover skill? (S/N)\n> ").strip()
                 if resetar.upper() == "S":
                     matriz_vagas = []
                 elif resetar.upper() == "N":
                     continue
                 else:
-                    print(f"{color['red']}ERRO: RESPOSTA INVALIDA, Digite S ou N{color['reset']}")
+                    print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
                     continue
 
             for skills in range(len(skills_linha)):  # Imprime todas as skills
@@ -173,47 +163,47 @@ while True:
                 conferir = input(f"Deseja mesmo remover {remove}? (S/N)\n> ").strip()
                 if conferir.upper() == "S":
                     skills_linha.remove(remove)
-                    print(f"{color['green']}\n {remove} REMOVIDO COM SUCESSO{color['reset']}")
+                    print(f"\n {remove} REMOVIDO COM SUCESSO")
                 elif conferir.upper() == "N":
-                    print(f"{color['green']}OPERAÇÃO CANCELADA.{color['reset']}")
+                    print("OPERAÇÃO CANCELADA.")
                 else:
-                    print(f"{color['red']}ERRO: RESPOSTA INVALIDA, Digite S ou N{color['reset']}")
+                    print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
             else:
-                print(f"{color['red']}ERRO: Skill não encontrada.{color['reset']}")
+                print("ERRO: Skill não encontrada.")
 
         case "5":
         # Remover VAGAS
             if len(matriz_vagas) != 0:
-                print(f"{color['red']}ERRO: A planilha está completa.{color['reset']}")
+                print("ERRO: A planilha está completa.")
                 resetar = input("Deseja resetar a planilha para remover vaga? (S/N)\n> ").strip()
                 if resetar.upper() == "S":
                     matriz_vagas = []
                 elif resetar.upper() == "N":
                     continue
                 else:
-                    print(f"{color['red']}ERRO: RESPOSTA INVALIDA, Digite S ou N{color['reset']}")
+                    print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
                     continue
 
             for vagas in range(len(vagas_coluna)):  # Imprime todas as vagas
                 print(f"{vagas_coluna[vagas]}")
             
-            remove = input("\nQual skill deseja remover?\n> ").upper()
+            remove = input("\nQual vaga deseja remover?\n> ").upper()
             if remove in vagas_coluna:  # Confere se a vaga digitada existe no vetor vagas_coluna
                 conferir = input(f"Deseja mesmo remover {remove}? (S/N)\n> ").strip()
                 if conferir.upper() == "S":
                     vagas_coluna.remove(remove)
-                    print(f"{color['green']}\n {remove} REMOVIDO COM SUCESSO{color['reset']}")
+                    print(f"\n {remove} REMOVIDO COM SUCESSO")
                 elif conferir.upper() == "N":
-                    print(f"{color['green']}OPERAÇÃO CANCELADA.{color['reset']}")
+                    print("OPERAÇÃO CANCELADA.")
                 else:
-                    print(f"{color['red']}ERRO: RESPOSTA INVALIDA, Digite S ou N{color['reset']}")
+                    print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
             else:
-                print(f"{color['red']}ERRO: Skill não encontrada.{color['reset']}")
+                print("ERRO: Vaga não encontrada.")
 
         case "6":
         #Verificar se existem dados na matriz
             if len(matriz_vagas) == 0:
-                print(f"{color['red']}ERRO: NENHUM DADO ENCONTRADO NA PLANILHA.{color['reset']}\n")
+                print("ERRO: NENHUM DADO ENCONTRADO NA PLANILHA.\n")
                 continue
 
         # Alterar dados na matriz
@@ -226,7 +216,7 @@ while True:
                         indice_coluna = vagas_coluna.index(vaga_alterar)  # Busca o indice da coluna digitada
                         break
                 else:
-                    print(f"{color['red']}ERRO: Vaga não encontrada.{color['reset']}") 
+                    print("ERRO: Vaga não encontrada.") 
                     continue
 
             print(" ")
@@ -240,7 +230,7 @@ while True:
                         indice_linha = skills_linha.index(skill_alterar)  # Busca o indice da linha digitada
                         break
                 else:
-                    print(f"{color['red']}ERRO: Skill não encontrada.{color['reset']}")
+                    print("ERRO: Skill não encontrada.")
                     continue
 
             while True:
@@ -252,7 +242,7 @@ while True:
                     matriz_vagas[indice_linha][indice_coluna] = False
                     break
                 else:
-                    print(f"{color['red']}ERRO: RESPOSTA INVALIDA, Digite S ou N{color['reset']}")
+                    print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
 
         case "7":
         # Printar a matriz
@@ -275,22 +265,22 @@ while True:
             os.system("cls")
             while True:
                 print(" ")
-                print(f"{color['magenta']}  CADASTRO DE VAGAS DE EMPREGO  ")
+                print(f"  CADASTRO DE VAGAS DE EMPREGO  ")
                 print("--------------------------------")
                 print("            PESQUISAS           ")
-                print(f"--------------------------------{color['reset']}")
-                print(f"{color['cyan']}1 - Filtrar Skills por Vagas")
+                print(f"--------------------------------")
+                print(f"1 - Filtrar Skills por Vagas")
                 print("2 - Filtrar Vagas por Skills")
-                print(f"0 - Voltar{color['reset']}")
-                print(f"{color['magenta']}--------------------------------")
+                print(f"0 - Voltar")
+                print(f"--------------------------------")
                 print("Digite 'LIMPAR' para limpar o console")
-                print(f"--------------------------------{color['reset']}")
+                print(f"--------------------------------")
                 resposta_pesquisa = input("> ").upper().strip()
 
                 match resposta_pesquisa:
                     case "1":
                         if len(matriz_vagas) == 0:
-                            print(f"{color['red']}ERRO: Planilha sem dados.{color['reset']}\n")
+                            print("ERRO: Planilha sem dados.\n")
                             continue
                     
                         for vagas in range(len(vagas_coluna)):  # Imprime todas as vagas
@@ -298,7 +288,7 @@ while True:
 
                         vaga_filtrar = input("Qual vaga deseja filtrar?\n> ").upper().strip()
                         if vaga_filtrar not in vagas_coluna:
-                            print(f"{color['red']}ERRO: Vaga não encontrada.{color['reset']}\n")
+                            print("ERRO: Vaga não encontrada.\n")
                             continue
 
                         skills_utilizadas = []
@@ -317,7 +307,7 @@ while True:
 
                     case "2":
                         if len(matriz_vagas) == 0:
-                            print(f"{color['red']}ERRO: Planilha sem dados.{color['reset']}\n")
+                            print("ERRO: Planilha sem dados.\n")
                             continue
 
                         for skills in range(len(skills_linha)):  # Imprime todas as skills
@@ -325,7 +315,7 @@ while True:
 
                         skill_filtrar = input("Qual skill deseja filtrar?\n> ").upper().strip()
                         if skill_filtrar not in skills_linha:
-                            print(f"{color['red']}ERRO: Skill não encontrada.{color['reset']}\n")
+                            print("ERRO: Skill não encontrada.\n")
                             continue
 
                         vagas_utilizadas = []
@@ -353,9 +343,9 @@ while True:
         case "0":
             os.system('cls')
             if resposta == "0":
-                print(f"{color['magenta']} Programa feito como TRABALHO FINAL da Disciplina de LP1")
-                print(f"\nINTEGRANTES:{color['reset']}{color['cyan']} Erick Lauretti\n             João Guilherme\n             Luiz Hélio{color['reset']} \n")
-                print(f"{color['magenta']}Obrigado por usar Cadastro de Vagas de Emprego!\nGITHUB Repository: https://github.com/LuizHelio-Fim/CadastroDeVagasDeEmprego_TrabalhoFinal{color['reset']} \n\n")
+                print(" Programa feito como TRABALHO FINAL da Disciplina de LP1")
+                print("\nINTEGRANTES: Erick Lauretti\n             João Guilherme\n             Luiz Hélio \n")
+                print("Obrigado por usar Cadastro de Vagas de Emprego!\nGITHUB Repository: https://github.com/LuizHelio-Fim/CadastroDeVagasDeEmprego_TrabalhoFinal \n\n")
                 exit()
 
         case "LIMPAR":
@@ -363,5 +353,5 @@ while True:
             continue
 
         case _:
-            print(f"{color['red']}ERRO: OPÇÃO SELECIONADA INVALIDA.{color['reset']}")
+            print("ERRO: OPÇÃO SELECIONADA INVALIDA.")
             continue
