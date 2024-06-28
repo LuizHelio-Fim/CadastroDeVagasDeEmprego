@@ -65,7 +65,6 @@ while True:
         case "2":
         # Cadastrar uma nova skill
             while True:
-
                 if len(matriz_vagas) > 0:
                     print("ERRO: Lista preenchida, deseja resetar a planilha? (S/N)")
                     resetar = input("> ").upper().strip()
@@ -78,7 +77,7 @@ while True:
                         print("ERRO: RESPOSTA INVALIDA, Digite S ou N")
                         continue
 
-                nova_Skill = input("Qual skill deseja adicionar?\n> ").upper().strip()
+                nova_Skill = input("Qual skill deseja adicionar?\n> ").upper().strip() 
                 if nova_Skill in skills_linha:
                     print("ERRO: Skill já cadastrada")
                     continue
